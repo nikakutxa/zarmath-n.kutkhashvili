@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Page</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #000000;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .burger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .burger-menu div {
+        width: 25px;
+        height: 3px;
+        background-color: #000000;
+      }
+
+      #nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #c0b7b7;
+        padding: 10px 0;
+      }
+
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .contact-col {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .footer-nav-links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-nav-links li {
+        display: inline;
+        margin: 0 10px;
+      }
+
+      .footer-nav-links a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      /* Footer at the bottom */
+      #footer-section {
+        margin-top: auto;
+        background-color: #f8f9fa;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+        }
+
+        .burger-menu {
+          display: flex;
+        }
+
+        .contact-row {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html"
+        ><img class="logof" src="/images/logo.png" alt="logo"
+      /></a>
+      <div class="burger-menu" id="burger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="about-us.html">ჩვენს შესახებ</a>
+        <a href="learn.html">სწავლა</a>
+        <a href="quiz.html">ქვიზი</a>
+        <a href="ai.html">AI</a>
+        <a href="calculator.html">კალკულატორი</a>
+        <a href="contact.html">კონტაქტი</a>
+      </nav>
+    </header>
+
+    <section id="contact" class="container my-5">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <div class="contact-row">
+        <!-- Contact Info -->
+        <div class="contact-col">
+          <div class="testimonial-wrapper">
+            <p>კითხვების შემთხვევაში მოგვწერეთ</p>
+            <p>nikakutxa84@gmail.com</p>
+            <p>tel: 598-24-37-42</p>
+            <br />
+            <p>ხარვეზის შემთხვევაშიც :)</p>
+          </div>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="contact-col">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="feedbackType" class="form-label">Feedback Type</label>
+              <select class="form-select" id="feedbackType" required>
+                <option value="" disabled selected>Select feedback type</option>
+                <option value="comment">Comment</option>
+                <option value="problem">Report a Problem</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Details</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="5"
+                placeholder="Write your message here"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-section">
+      <div class="footer-row">
+        <a href="https://geolab.edu.ge/">
+          <img class="tbclogo" src="/images/tbc-logo.png" alt="logo" />
+        </a>
+        <p>made with geolab support :)</p>
+        <div class="footer-nav-links">
+          <ul>
+            <li><a href="index.html">main</a></li>
+            <li><a href="about-us.html">about</a></li>
+            <li><a href="learn.html">learn</a></li>
+            <li><a href="contact.html">contact</a></li>
+            <li><a href="ai.html">ai</a></li>
+            <li><a href="quiz.html">quiz</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

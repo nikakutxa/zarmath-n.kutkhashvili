@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Math Solver</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      }
+
+      header {
+        width: 100%;
+        background: #007bff;
+        color: white;
+        padding: 10px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+      }
+
+      .nav-links ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #ffdd57;
+      }
+
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        margin-top: 100px;
+      }
+
+      h1 {
+        color: #007bff;
+        margin-bottom: 20px;
+        font-size: 28px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        color: white;
+        background: #ff5722;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #e64a19;
+      }
+
+      #solution {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #4caf50;
+        min-height: 24px;
+      }
+
+      footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        input,
+        button {
+          font-size: 14px;
+        }
+
+        .nav-links ul {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 20px;
+        }
+
+        .container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="logo">
+        <a href="/images/logo.png"></a>
+      </div>
+      <div class="burger-menu" id="burger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <a href="index.html"
+        ><img class="logof" src="/images/logo.png" alt="logo"
+      /></a>
+      <nav class="nav-links" id="nav-links">
+        <a href="about-us.html">ჩვენს შესახებ</a>
+        <a href="learn.html">სწავლა</a>
+        <a href="quiz.html">ქვიზი</a>
+        <a href="ai.html">ai</a>
+        <a href="calculator.html">კალკულატორი</a>
+        <a href="contact.html">კონტაქტი</a>
+      </nav>
+    </header>
+
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active");
+      }
+    </script>
+    <div class="container">
+      <h1>Math Solver</h1>
+      <input type="text" id="problem" placeholder="Enter a math problem" />
+      <button onclick="solveProblem()">Solve</button>
+      <div id="solution"></div>
+    </div>
+    <footer>
+      <p>update comming soon...</p>
+    </footer>
+
+    <script>
+      async function solveProblem() {
+        const problem = document.getElementById("problem").value;
+        const solutionDiv = document.getElementById("solution");
+
+        if (!problem) {
+          solutionDiv.innerHTML = "Please enter a math problem!";
+          return;
+        }
+
+        solutionDiv.innerHTML = "Solving...";
+
+        try {
+          const response = await fetch("http://127.0.0.1:5000/solve", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ problem }),
+          });
+
+          const data = await response.json();
+
+          if (data.solution) {
+            solutionDiv.innerHTML = `Solution: ${data.solution}`;
+          } else {
+            solutionDiv.innerHTML = `Error: ${data.error}`;
+          }
+        } catch (error) {
+          solutionDiv.innerHTML = "Error connecting to the server!";
+        }
+      }
+    </script>
+  </body>
+</html>

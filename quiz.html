@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Zarmath Quiz</title>
+    <style>
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f3f4f6;
+        color: #333;
+      }
+
+      header {
+        background-color: #00796b;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 3rem auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .question {
+        margin-bottom: 2rem;
+      }
+
+      .question h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #00796b;
+      }
+
+      .options {
+        list-style: none;
+        padding: 0;
+      }
+
+      .options li {
+        margin-bottom: 0.8rem;
+      }
+
+      .options input {
+        margin-right: 0.5rem;
+      }
+
+      .submit-btn {
+        background-color: #00796b;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background-color: #005a4f;
+      }
+
+      .result {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #4caf50;
+        text-align: center;
+      }
+
+      #footer-section {
+        background-color: #263238;
+        color: white;
+
+        margin-top: 3rem;
+        text-align: center;
+      }
+
+      #footer-section .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      #footer-section .tbclogo {
+        max-width: 100px;
+      }
+
+      #footer-section p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      #footer-section .footer-nav-links ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+      }
+
+      #footer-section .footer-nav-links ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      #footer-section .footer-nav-links ul li a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.5rem;
+        }
+
+        header {
+          font-size: 0.9rem;
+        }
+
+        #footer-section .footer-row {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="logo">
+        <a href="/images/logo.png"></a>
+      </div>
+      <div class="burger-menu" id="burger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <a href="index.html"
+        ><img class="logof" src="/images/logo.png" alt="logo"
+      /></a>
+      <nav class="nav-links" id="nav-links">
+        <a href="about-us.html">ჩვენს შესახებ</a>
+        <a href="learn.html">სწავლა</a>
+        <a href="quiz.html">ქვიზი</a>
+        <a href="ai.html">ai</a>
+        <a href="calculator.html">კალკულატორი</a>
+        <a href="contact.html">კონტაქტი</a>
+      </nav>
+    </header>
+
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active");
+      }
+    </script>
+    <div class="question">
+      <h2>2. What is 10 - 4?</h2>
+      <ul class="options">
+        <li>
+          <label><input type="radio" name="q1" value="6" /> 6</label>
+        </li>
+        <li>
+          <label><input type="radio" name="q1" value="7" /> 7</label>
+        </li>
+        <li>
+          <label><input type="radio" name="q1" value="8" /> 8</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <h2>2. What is 10 - 4?</h2>
+      <ul class="options">
+        <li>
+          <label><input type="radio" name="q2" value="6" /> 6</label>
+        </li>
+        <li>
+          <label><input type="radio" name="q2" value="7" /> 7</label>
+        </li>
+        <li>
+          <label><input type="radio" name="q2" value="8" /> 8</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <h2>3. What is 3 x 3?</h2>
+      <ul class="options">
+        <li>
+          <label><input type="radio" name="q3" value="6" /> 6</label>
+        </li>
+        <li>
+          <label><input type="radio" name="q3" value="9" /> 9</label>
+        </li>
+        <li>
+          <label><input type="radio" name="q3" value="12" /> 12</label>
+        </li>
+      </ul>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="calculateScore()">
+      Submit
+    </button>
+    <div id="result" class="result"></div>
+
+    <div id="footer-section">
+      <div class="footer-row">
+        <a href="https://geolab.edu.ge/">
+          <img class="tbclogo" src="/images/tbc-logo.png" alt="logo" />
+        </a>
+        <p>made with geolab support :)</p>
+        <div class="footer-nav-links">
+          <ul>
+            <li><a href="about-us.html">ჩვენს შესახებ</a></li>
+            <li><a href="quiz.html">ქვიზი</a></li>
+            <li><a href="learn.html">სწავლა</a></li>
+            <li><a href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function calculateScore() {
+        const answers = {
+          q1: "8",
+          q2: "6",
+          q3: "9",
+        };
+
+        let score = 0;
+        const form = document.getElementById("quizForm");
+        const resultDiv = document.getElementById("result");
+
+        for (const [question, correctAnswer] of Object.entries(answers)) {
+          const selectedOption = form.querySelector(
+            `input[name="${question}"]:checked`
+          );
+          if (selectedOption && selectedOption.value === correctAnswer) {
+            score++;
+          }
+        }
+
+        resultDiv.textContent = `You scored ${score} out of ${
+          Object.keys(answers).length
+        }!`;
+        resultDiv.style.color =
+          score === Object.keys(answers).length ? "#4caf50" : "#d32f2f";
+      }
+    </script>
+  </body>
+</html>

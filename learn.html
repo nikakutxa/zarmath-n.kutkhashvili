@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="/styles/reset.css" />
+     <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/images" />
+    <link rel="stylesheet" href="/styles/header.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"/>
+
+  </head>
+  <body class="body" >
+ 
+    <header class="header">
+      <div class="logo">
+         <a href="/images/logo.png"   ></a>
+      </div>
+      <div class="burger-menu" id="burger-menu" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+      <a  href="index.html"><img class="logof" src="/images/logo.png" alt="logo"></a>
+      <nav class="nav-links" id="nav-links">
+          
+          <a href="about-us.html">ჩვენს შესახებ</a>
+          <a href="learn.html">სწავლა</a>
+          <a href="quiz.html">ქვიზი</a>
+          <a href="ai.html">ai</a>
+          <a href="calculator.html">კალკულატორი</a>
+          <a href="contact.html">კონტაქტი</a>
+          
+      </nav>
+  </header>
+
+  <script>
+      function toggleMenu() {
+          const navLinks = document.getElementById('nav-links');
+          navLinks.classList.toggle('active');
+      }
+  </script>
+    
+    <section id="our-products">
+      <div class="products-grid-wrapper reveal">
+        <div class="products-grid-container">
+          <div class="grid-item">
+            <a href="https://ka.khanacademy.org/math/algebra-home"
+            rel="noopener noreferrer"
+             target="_blank"
+            ><img src="/images/algebra.jfif"
+            alt="algebra"></a>
+            <p>ალგებრა</p>
+          </div>
+          <div class="grid-item">
+          <a href="https://ka.khanacademy.org/math/geometry-home"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img src="/images/geometry.jfif"alt="geometry" ></a>
+            <p>გეომეტრია</p>
+          </div>
+          <div class="grid-item">
+           <a href="mathematikosebi.html" 
+           target="_blank"
+           rel="noopener noreferrer"
+           ><img src="/images/download.png" alt="ბიოგრაფია" /></a>
+            <p>მათემატიკოსების ბიოგრაფია</p>
+          </div>
+          <div class="grid-item">
+            <img src="" alt="" />
+            <p></p>
+          </div>
+          <div class="grid-item">
+           <a href="https://www.calameo.com/read/00592070828ea8ae7fce5"
+           target="_blank"
+           rel="noopener noreferrer"
+           ><img src="/images/images1.jfif" alt="image"></a>
+            <p>ფორმულები</p>
+          </div>
+          <div class="grid-item">
+            <img src="" alt="" />
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer-section">
+      <div class="footer-row">
+        <a href="https://geolab.edu.ge/"
+        ><img class="tbclogo" src="/images/tbc-logo.png" alt="logo"
+      /></a>
+        <p>made with geolab support :)</p>
+        <div class="footer-nav-links">
+          <ul>
+            <li>
+              <a href="index.html">მთავარი</a>
+            </li>
+            <li>
+              <a href="about-us.html">შესახებ</a>
+            </li>
+            <li>
+              <a href="learn.html">სწავლა</a>
+            </li>
+            <li>
+              <a href="contact.html">კონტაქტი</a>
+
+            </li>
+            <li>
+              <a href="ai.html">ai</a>
+              <li>
+                <a href="quiz.html">ქვიზი</a>
+              </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
